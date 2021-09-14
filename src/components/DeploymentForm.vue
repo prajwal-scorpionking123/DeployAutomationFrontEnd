@@ -54,17 +54,18 @@
                     <label for="inputTicket">Ticket No</label>
                   </div>
                 </div>
-                <!-- <div class="col-md-6">
+                <div class="col-md-6">
                   <div class="form-floating mb-3 mb-md-0">
                     <input
                       class="form-control"
                       id="inputPasswordConfirm"
-                      type="password"
-                      placeholder="Confirm password"
+                      type="text"
+                     
+                      v-model="destination"
                     />
-                    <label for="inputPasswordConfirm">Confirm Password</label>
+                    <label for="inputWeb">destination name</label>
                   </div>
-                </div> -->
+                </div>
               </div>
               <div class="mt-4 mb-0">
                 <div class="d-grid">
@@ -89,6 +90,7 @@ export default {
       email: "",
       sourcelink: "",
       ticket: "",
+      destination:""
     };
   },
   methods: {
@@ -98,6 +100,7 @@ export default {
         email: this.email,
         sourcelink: this.sourcelink,
         ticket: this.ticket,
+        destinationlink:this.destination
       };
       axios
         .post("/v1/postlink", source)
@@ -114,6 +117,7 @@ export default {
         (this.email = ""),
         (this.sourcelink = ""),
         (this.ticket = "");
+        this.destination=""
     },
   },
 };

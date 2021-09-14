@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div class="container mt-3">
+    <div id="app" >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         
@@ -26,6 +27,7 @@
     </nav>
     <router-view />
   </div>
+  </div>
 </template>
 
 <style>
@@ -35,6 +37,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
 }
 
 #nav {
@@ -49,4 +52,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>

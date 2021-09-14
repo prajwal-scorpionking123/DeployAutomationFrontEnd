@@ -29,7 +29,7 @@
             <button
               class="btn btn-dark btn-sm"
               :disabled="source.isapproved"
-              @click.prevent="deploy(source.sourcelink,source._id)"
+              @click.prevent="deploy(source.sourcelink,source.destinationlink,source._id)"
             >
               Deploy
             </button>
@@ -73,6 +73,8 @@ export default {
         alert("Otp Verified..!  Karde Deploy");
         this.isVerified(id,true)
         this.isApproved(id,false)
+      }else{
+        alert("Otp Barabar Enter kar!");
       }
     },
     getSource() {
@@ -92,9 +94,12 @@ export default {
       }
       axios.put(`/v1/isrequested/${id}`, value).then((res) => {
           console.log(res)
+       
         this.getSource()
       }).catch((err)=>{
           console.log(err)
+          alert(err)
+
       });
     },
     isApproved(id,v){
@@ -103,8 +108,12 @@ export default {
       }
       axios.put(`/v1/isapproved/${id}`, value).then((res) => {
           console.log(res)
+         
+          
         this.getSource()
       }).catch((err)=>{
+          alert(err)
+
           console.log(err)
       });
     },
@@ -114,15 +123,18 @@ export default {
       }
       axios.put(`/v1/isverified/${id}`, value).then((res) => {
           console.log(res)
+        
         this.getSource()
       }).catch((err)=>{
+          alert(err)
+
           console.log(err)
       });
     },
-    deploy(sourcelink,id) {
+    deploy(sourcelink,destination,id) {
       var deployment = {
         sourcelink: sourcelink,
-        destinationlink: "/api",
+        destinationlink: destination,
       };
       console.log(deployment);
       axios.post("/v1/deployMultiple", deployment).then((res) => {
@@ -138,11 +150,13 @@ export default {
       axios
         .post("/v1/otpmail", email)
         .then((res) => {
+          alert("OTP SENT")
           this.$session.set("otp", res.data.otp);
           this.isRequested(id,true)
           this.isVerified(id,false)
         })
         .catch((err) => {
+          alert(err)
           console.log(err);
         });
      

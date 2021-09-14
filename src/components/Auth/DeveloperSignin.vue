@@ -8,8 +8,8 @@
                                     <div class="card-body">
                                         <form @submit.prevent="login()">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email"  v-model="Username" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                                <input class="form-control" id="inputEmail" type="text"  v-model="Username" placeholder="name@example.com" />
+                                                <label for="inputEmail">Username</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" v-model="Password" type="password" placeholder="Password" />
@@ -45,34 +45,34 @@ export default {
     login() {
           this.$router.push({ path: "/DeploymentForm" });
 
-    //   const log = {
-    //     Username: this.Username,
-    //     Password: this.Password,
-    //   };
-    //   axios
-    //     .post("/v1/login", log)
-    //     .then((res) => {
-    //       console.log(res.value);
-    //       this.$fire({
-    //         title: "Success",
-    //         text: "Successfully Logged In",
-    //         type: "success",
-    //         timer: 3000,
-    //       });
-    //       this.$router.push({ path: "/DeploymentForm" });
-    //     })
-    //     .catch((err) => {
-    //       this.$fire({
-    //         title: "Failed",
-    //         text: err.response.data.status,
-    //         type: "warning",
-    //         timer: 3000,
-    //         reverseButton: true,
-    //       }).then((r) => {
-    //         console.log(r.value);
-    //       });
-    //     });
-    //   (this.Username = ""), (this.Password = "");
+      // const log = {
+      //   Username: this.Username,
+      //   Password: this.Password,
+      // };
+      // axios
+      //   .post("/v1/login", log)
+      //   .then((res) => {
+      //     console.log(res.value);
+      //     this.$fire({
+      //       title: "Success",
+      //       text: "Successfully Logged In",
+      //       type: "success",
+      //       timer: 3000,
+      //     });
+      //     this.$router.push({ path: "/DeploymentForm" });
+      //   })
+      //   .catch((err) => {
+      //     this.$fire({
+      //       title: "Failed",
+      //       text: err.response.data.status,
+      //       type: "warning",
+      //       timer: 3000,
+      //       reverseButton: true,
+      //     }).then((r) => {
+      //       console.log(r.value);
+      //     });
+      //   });
+      // (this.Username = ""), (this.Password = "");
     },
   },
 }

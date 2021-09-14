@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LandingPage from "../components/LandingPage"
 import ITSignin from "../components/Auth/ITSignin"
 import DeveloperSignin from "../components/Auth/DeveloperSignin"
 import Dashboard from "../components/Dashboard"
@@ -10,14 +9,14 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'LandingPage',
-    component: LandingPage
-  },
-  {
-    path: '/ITSignin',
     name: 'ITSignin',
     component: ITSignin
   },
+  // {
+  //   path: '/ITSignin',
+  //   name: 'ITSignin',
+  //   component: ITSignin
+  // },
   {
     path: '/DeveloperSignin',
     name: 'DeveloperSignin',
