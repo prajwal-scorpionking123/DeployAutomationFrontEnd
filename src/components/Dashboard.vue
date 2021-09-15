@@ -29,7 +29,7 @@
             <button
               class="btn btn-dark btn-sm"
               :disabled="source.isapproved"
-              @click.prevent="deploy(source.sourcelink,source.destinationlink,source._id)"
+              @click.prevent="deploy(source.sourcelink,source.destinationlink,source.ticket,source._id)"
             >
               Deploy
             </button>
@@ -65,16 +65,15 @@ export default {
   },
   methods: {
      
-    
     verifyOtp(id) {
       var otp = prompt("enter otp");
       var usrOtp = this.$session.get("otp");
       if (usrOtp === otp) {
-        alert("Otp Verified..!  Karde Deploy");
+        alert("Otp Verified");
         this.isVerified(id,true)
         this.isApproved(id,false)
       }else{
-        alert("Otp Barabar Enter kar!");
+        alert("Enter correct otp!");
       }
     },
     getSource() {
@@ -131,10 +130,11 @@ export default {
           console.log(err)
       });
     },
-    deploy(sourcelink,destination,id) {
+    deploy(sourcelink,destination,ticket,id) {
       var deployment = {
         sourcelink: sourcelink,
         destinationlink: destination,
+        ticket:ticket
       };
       console.log(deployment);
       axios.post("/v1/deployMultiple", deployment).then((res) => {

@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   data() {
     return {
@@ -94,38 +94,38 @@ export default {
       // }else{
       // this.$router.push({ path: "/DeploymentForm" });
       // }
-      const log = {
-        Username: this.Username,
-        Password: this.Password,
-      };
-      axios
-        .post("/v1/login", log)
-        .then((res) => {
-          console.log(res.value);
-          this.$fire({
-            title: "Success",
-            text: "Successfully Logged In",
-            type: "success",
-            timer: 3000,
-          });
+      // const log = {
+      //   Username: this.Username,
+      //   Password: this.Password,
+      // };
+      // axios
+      //   .post("/v1/login", log)
+      //   .then((res) => {
+      //     console.log(res.value);
+      //     this.$fire({
+      //       title: "Success",
+      //       text: "Successfully Logged In",
+      //       type: "success",
+      //       timer: 3000,
+      //     });
            if(this.userType=="admin"){
               this.$router.push({ path: "/Dashboard" });
            }else{
              this.$router.push({ path: "/DeploymentForm" });
              }
-        })
-        .catch((err) => {
-          this.$fire({
-            title: "Failed",
-            text: err.response.data.status,
-            type: "warning",
-            timer: 3000,
-            reverseButton: true,
-          }).then((r) => {
-            console.log(r.value);
-          });
-        });
-      (this.Username = ""), (this.Password = "");
+      //   })
+      //   .catch((err) => {
+      //     this.$fire({
+      //       title: "Failed",
+      //       text: err.response.data.status,
+      //       type: "warning",
+      //       timer: 3000,
+      //       reverseButton: true,
+      //     }).then((r) => {
+      //       console.log(r.value);
+      //     });
+      //   });
+      // (this.Username = ""), (this.Password = "");
     },
   },
 };
